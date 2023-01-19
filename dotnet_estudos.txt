@@ -554,6 +554,47 @@ while(true)
 
 }
 
+//outra maneira de sair do laco do switch case
+
+using ExemploFundamentos.Models;
+
+string opcao;
+bool exibirMenu = true;
+
+while(exibirMenu)
+{
+    Console.WriteLine("Digite a sua opcao:");
+    Console.WriteLine("1 - Cadastrar cliente");
+    Console.WriteLine("2 - Buscar cliente");
+    Console.WriteLine("3 - Apagar cliente");
+    Console.WriteLine("4 - Encerrar");
+
+    opcao = Console.ReadLine();
+
+    switch(opcao)
+    {
+        case "1":
+            Console.WriteLine("Cadastro de cliente");
+            break;
+        
+        case "2":
+            Console.WriteLine("Busca de cliente");
+            break;
+
+        case "3":
+            Console.WriteLine("Apagar Cliente");
+            break;
+        
+        case "4":
+            Console.WriteLine("Encerrar");//significa encerrar o programa
+            exibirMenu=false;//encerrar programa saindo do laco
+            break;
+
+        default:
+            Console.WriteLine("Opcao nao existente");
+            break;
+    }
+}
 ======================================================================================================================================================================================================================================================================================
 *COMO EU UPAR DIRETORIO NO GIT
 
@@ -562,13 +603,29 @@ while(true)
 3) coloque na pasta raiz um arquivo .gitigone conforme a linguagem
 4) de no terminal o codigo --> git rm -r --cached .
 5) git add --> ele adiciona o git a um commit
-6) got commit -m "(escreva aqui o nome do seu commit)"
+6) git commit -m "(escreva aqui o nome do seu commit)" --> eh como se fosse um log
 7) crie um repositorio
 8) pegue a url do seu repositorio com .git e coloque no terminal do git
 9) git push
 	9.1) caso preciso fazer a conexao com o git master --> git push -u origin master
 
 ======================================================================================================================================================================================================================================================================================
+*ESTRUTURA DE PROJETO E METODO PRINCIPAL
+
+Aqui ira falar quais sao os arquivos principais em .net, como vc pode indentificalos para que eles servem;
+
+-Arquivos de projetos
+
+.csproj: ele contem informacoes referente ao projeto (build, debug, versao);
+.sln: eh uma solucao, ele serve para fazer o agruppamento de projetos;
+
+======================================================================================================================================================================================================================================================================================
+*CRIANDO UM NOVO PROJETO
+
+1) faça o BK do projeto atual;
+2) Va na raiz do diretorio do seu projeto atual;
 
 
+
+======================================================================================================================================================================================================================================================================================
 
