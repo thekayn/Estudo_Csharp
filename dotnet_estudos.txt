@@ -447,6 +447,17 @@ Ex.:
 //=============Exemlpos de laços==================
 
 //Laço com for:
+
+
+//O laco "for" vai ficar repetindo conforme a sua condicao for verdadeira;
+//for(1|2|3)
+//{
+
+//}
+//1-> tipo variavel e o nome da variavel
+//2-> condicao para parada
+//3-> como a sua variavel vai se comportar dentro do laco
+
 //Exemplo do `for(declaracao da variavel; condicao de parada; o quanto o meu contador ira alterar)` fazenddo uma tabuada;
 //Sempre que a condicao do laco for false, ele encerra a repeticao;
 //Exemplo: FACA UMA TABOADO DO 5:
@@ -609,6 +620,8 @@ while(exibirMenu)
 9) git push
 	9.1) caso preciso fazer a conexao com o git master --> git push -u origin master
 
+
+git add --> pega as alteracoes para mandar pro commit 
 ======================================================================================================================================================================================================================================================================================
 *ESTRUTURA DE PROJETO E METODO PRINCIPAL
 
@@ -617,7 +630,7 @@ Aqui ira falar quais sao os arquivos principais em .net, como vc pode indentific
 -Arquivos de projetos
 
 .csproj: ele contem informacoes referente ao projeto (build, debug, versao);
-.sln: eh uma solucao, ele serve para fazer o agruppamento de projetos;
+.sln: eh uma solucao, ele serve para fazer o agrupamento de projetos;
 
 ======================================================================================================================================================================================================================================================================================
 *CRIANDO UM NOVO PROJETO
@@ -628,4 +641,248 @@ Aqui ira falar quais sao os arquivos principais em .net, como vc pode indentific
 
 
 ======================================================================================================================================================================================================================================================================================
+*ARRAY E LISTAS:
 
+Array conheciddo tambem como matriz ou vetor, ela eh uma estruturada de dados que armazena valores do mesmo tipo, sempre com um comprimento fixo;
+Sao situacoes que vc tera q apresentar diversos valores a uma variavel;
+	por exemplo, se vc fosse ppassar os 12 meses do ano, vc nao prpecisa criar 12 variaveis, mas sim criar um arrey que contenha essas 12 variaveis;
+Ex.:
+
+1. int[]array = new int[4];
+    tipo do array[]nome da variavel = tamanho fixo de array[];
+ 	
+2. int[]array = new int[]{42,75,74,61};
+3. string[] nomes = {"Jan","Fev"};
+
+Mas se por exemplo existisse esse array:
+	int[]array = new int[]{42,75,74,61};
+				0|1 |2 |3
+
+A gente consegue pegar apenas o valor 74, pois ele eh o "indice" 2 do array;
+Indice eh o tamanho do array;
+
+Ex. pratico:
+
+using ExemploFundamentos.Common.Models;
+using ExemploFundamentos.Models;
+
+int[] arrayInteiros = new int[3]; //total de 3 no indice
+
+arrayInteiros[0] = 72; //--indice 1
+arrayInteiros[1] = 64; //--indice 2
+arrayInteiros[2] = 50; //--indice 3
+
+//para printar um array faca um laco de repeticao que vao percorrer pelos indices
+
+for(int contador=0; contador < arrayInteiros.Length; contador++)
+{
+	Console.WriteLine($"Posicao numero {contador} = {arrayInteiros[contador]}");
+}
+
+
+======================================================================================================================================================================================================================================================================================
+*TRABALHANDO COM O FOREACH DENTRO DO ARRAY:
+O "foreach" so da pra ser usado com o array;
+
+//ARRAY E LISTAS
+
+using ExemploFundamentos.Models;
+
+int[] arrayInteiros = new int[3]; //total de 3 no indice
+
+arrayInteiros[0] = 72; //--indice 1
+arrayInteiros[1] = 64; //--indice 2
+arrayInteiros[2] = 50; //--indice 3
+
+//para printar um array faca um laco de repeticao que vao percorrer pelos indices
+Console.WriteLine("Percorrendo o meu array com o FOR");
+
+for(int contador=0; contador < arrayInteiros.Length; contador++)
+{
+	Console.WriteLine($"Posicao numero {contador} = {arrayInteiros[contador]}");
+}
+
+//Percorrendo o meu array com o FOREACH
+Console.WriteLine("Percorrendo o meu array com o FOREACH");
+//uma fesvantagem do foreac eh que com ele nao tem como saber em qual indice o array se encontra, a nao ser q vc faca um pprograma com o contador auxiliar
+int contadorForeach =0;
+foreach (int valorarrayInteiros in arrayInteiros)
+{
+    Console.WriteLine(valorarrayInteiros);
+    //abaixo estara um print para o terminal com o intuito de saber qual indice o foreac se encontra
+    contadorForeach++;
+    Console.WriteLine($"Posicao numero {contadorForeach} = {valorarrayInteiros}");
+}
+
+
+======================================================================================================================================================================================================================================================================================
+*REDIMENSIONANDO UM ARRAY:
+
+//ex.1(FEITO PELO CAIO E NAO PELO PROFESSOR):
+using ExemploFundamentos.Models;
+
+int indiceArray=0;
+
+Console.WriteLine("Coloque abaixo o tamanho do seu array:");
+indiceArray = Convert.ToInt32(Console.ReadLine());
+
+int[] arrayInteiros = new int[indiceArray];
+
+Console.WriteLine("Percorrendo o meu array com o FOREACH");
+//uma vantagem do foreac eh que com ele nao tem como saber em qual indice o array se encontra, a nao ser q vc faca um pprograma com o contador auxiliar
+int contadorForeach =0;
+foreach (int valorarrayInteiros in arrayInteiros)
+{
+    Console.WriteLine(valorarrayInteiros);
+     //abaixo estara um print para o terminal com o intuito de saber qual indice o foreac se encontra
+     contadorForeach++;
+     Console.WriteLine($"Posicao numero {contadorForeach} = {valorarrayInteiros}");
+}
+
+O professor utilzou a classe Array.Resize --> ela faz uma copia do array que vc passou para ela e comeca mandar as informacoes para la
+Ela faz a copia, pois o array nunca pode ter o seu indice mudado apos a inicializacao, logo, o "array nasce e morre com o mesmo tamanho, com a capacidade fixa"
+
+//REDIMENSIONANDDO UTILIZANDO A CLASSE Array.Resize (FEITO PELO PROFESSOR)
+
+using ExemploFundamentos.Models;
+
+int[] arrayInteiros = new int[3]; //total de 3 no indice
+
+arrayInteiros[0] = 72; //--indice 1
+arrayInteiros[1] = 64; //--indice 2
+arrayInteiros[2] = 50; //--indice 3
+
+int indiceArray=0;
+Console.WriteLine("Coloque abaixo o tamanho do seu array:");
+indiceArray = Convert.ToInt32(Console.ReadLine());
+
+Array.Resize(ref arrayInteiros, arrayInteiros.Length + indiceArray);
+Array.Resize(ref arrayInteiros, arrayInteiros.Length *2);
+//para printar um array faca um laco de repeticao que vao percorrer pelos indices
+Console.WriteLine("Percorrendo o meu array com o FOR");
+
+for(int contador=0; contador < arrayInteiros.Length; contador++)
+{
+	Console.WriteLine($"Posicao numero {contador} = {arrayInteiros[contador]}");
+}
+
+======================================================================================================================================================================================================================================================================================
+*COPIANDO UM ARRAY PARA OUTRO
+
+Primeiro precisamos ter um array que sera copiado e um que sera a copia;
+Para copiar usa-se a classe "Array", com o atributo ".Copy";
+
+O metodo ".Copy" funciona e tal meneira, (1,2,3)
+	1- array que sera copiado
+	2- array que tera a copia
+	3- a quantidade de indice que sera copiado
+
+//*PROGRAMA DE COMO COPIAR UM ARRAY
+using ExemploFundamentos.Common.Models;
+using System;
+
+int[] arrayInteiros = new int[3]; //array qque sera copiado
+
+arrayInteiros[0] = 72; //--indice 1
+arrayInteiros[1] = 64; //--indice 2
+arrayInteiros[2] = 50; //--indice 3
+
+int[] arrayInterirosCopia = new int[arrayInteiros.Length*2];
+Array.Copy(arrayInteiros, arrayInterirosCopia, arrayInteiros.Length);
+
+
+
+//para printar um array faca um laco de repeticao que vao percorrer pelos indices
+ Console.WriteLine("Percorrendo o meu array com o FOR");
+
+for(int contador=0; contador < arrayInterirosCopia.Length; contador++)
+ {
+  	Console.WriteLine($"Posicao numero {contador} = {arrayInterirosCopia[contador]}");
+ }
+
+
+
+======================================================================================================================================================================================================================================================================================
+*TRABALHANDO COM UMA LISTA
+
+A lista vc nao precisa gerenciar o tamanho dela;
+Ela e como se fosse uma extensao do array, mas vc nao passa o indice;
+
+Maneira de inicializa-la: 
+List<string> listaString = new List<string>();
+
+Significado de cada parte da inicializacao da variavel: Classe<Tipo> NomeDaLista = new Classe<Tipo>();
+
+Para adicionar algum dado dentro da lista coloque o metodo ".Add"
+Na hora de printar no terminal assim como no array o metodo ".Length" pegava todos os indices do array, ja na lista esse metodo eh o ".Count";
+
+//PROGRAMA CRIANDO UMA LISTA
+
+using ExemploFundamentos.Common.Models;
+using System;
+
+List<string> listaString = new List<string>();
+
+listaString.Add("C");
+listaString.Add("a");
+listaString.Add("i");
+listaString.Add("o");
+
+Console.WriteLine("Printando pelo for");
+for (int contador = 0; contador < listaString.Count; contador++)
+{
+	Console.WriteLine($"indice n {contador+1} = dado {listaString[contador]} da lista");
+}
+
+Console.WriteLine("Printando pelo foreach");
+int contadorForeach = 0;
+foreach (string item in listaString)
+{
+	Console.WriteLine($"indice n {contadorForeach+1} = dado {item} da lista");
+	contadorForeach++;
+}
+
+
+
+======================================================================================================================================================================================================================================================================================
+*DESAFIO DE PROGRAMA
+
+Desafio
+Dado um número inteiro ( n ) , retorne a diferença entre o produto de seus dígitos e a soma de seus dígitos.
+
+Entrada
+A entrada consiste em um número inteiro ( n );
+
+Saída
+A saída consiste na multiplicação do produto dos dígitos ( n ), a soma de seus dígitos e a diferenção entre o produto e a soma, como no exemplo a baixo: 
+
+Ex.1: entrada 234 - saida 15
+Ex.2: entrada 4421 - saida 21
+
+//programa
+using ExemploFundamentos.Common.Models;
+using System;
+
+int digito;
+int soma = 0;
+int multiplicacao = 1;
+int resultado = 0;
+int numero;
+Console.WriteLine("Coloque o numero");
+numero = Convert.ToInt32(Console.ReadLine());
+
+//estrutura de repeticao
+
+while (numero > 0)
+{
+    digito = numero % 10; //pegando o ultimo digito
+    soma = soma + digito;
+    numero = numero / 10;
+    multiplicacao = multiplicacao * digito;
+}
+
+resultado = multiplicacao - soma;
+
+Console.WriteLine($"valor eh {resultado}");
+======================================================================================================================================================================================================================================================================================
+FIM DESSE MODULO

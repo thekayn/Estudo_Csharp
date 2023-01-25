@@ -232,55 +232,128 @@
 
 //REDIMENSIONANDDO UTILIZANDO A CLASSE Array.Resize (FEITO PELO PROFESSOR)
 
-using System;
+// using System;
+// using ExemploFundamentos.Common.Models;
+
+
+// int[] arrayInteiros = new int[3]; //total de 3 no indice
+
+// arrayInteiros[0] = 72; //--indice 1
+// arrayInteiros[1] = 64; //--indice 2
+// arrayInteiros[2] = 50; //--indice 3
+
+// int indiceArray=0;
+// Console.WriteLine("Coloque abaixo o tamanho do seu array:");
+// indiceArray = Convert.ToInt32(Console.ReadLine());
+
+// Array.Resize(ref arrayInteiros, arrayInteiros.Length + indiceArray);
+// Array.Resize(ref arrayInteiros, arrayInteiros.Length *2);
+// //para printar um array faca um laco de repeticao que vao percorrer pelos indices
+// Console.WriteLine("Percorrendo o meu array com o FOR");
+
+// for(int contador=0; contador < arrayInteiros.Length; contador++)
+// {
+//    	Console.WriteLine($"Posicao numero {contador} = {arrayInteiros[contador]}");
+// }
+
+// //==============================================================================
+
+// //*PROGRAMA DE COMO COPIAR UM ARRAY
+// using ExemploFundamentos.Common.Models;
+// using System;
+
+// int[] arrayInteiros = new int[3]; //array qque sera copiado
+
+// arrayInteiros[0] = 72; //--indice 1
+// arrayInteiros[1] = 64; //--indice 2
+// arrayInteiros[2] = 50; //--indice 3
+
+// int[] arrayInterirosCopia = new int[arrayInteiros.Length*2];
+// Array.Copy(arrayInteiros, arrayInterirosCopia, arrayInteiros.Length);
+
+
+
+// //para printar um array faca um laco de repeticao que vao percorrer pelos indices
+//  Console.WriteLine("Percorrendo o meu array com o FOR");
+
+// for(int contador=0; contador < arrayInterirosCopia.Length; contador++)
+//  {
+//   	Console.WriteLine($"Posicao numero {contador} = {arrayInterirosCopia[contador]}");
+//  }
+
+
+
+
+
+
+
+
+
+
+// //PROGRAMA CRIANDO UMA LISTA
+
+// using ExemploFundamentos.Common.Models;
+// using System;
+
+// List<string> listaString = new List<string>();
+
+// listaString.Add("C");
+// listaString.Add("a");
+// listaString.Add("i");
+// listaString.Add("o");
+
+// Console.WriteLine("Printando pelo for");
+// for (int contador = 0; contador < listaString.Count; contador++)
+// {
+// 	Console.WriteLine($"indice n {contador+1} = dado {listaString[contador]} da lista");
+// }
+
+// Console.WriteLine("Printando pelo foreach");
+// int contadorForeach = 0;
+// foreach (string item in listaString)
+// {
+// 	Console.WriteLine($"indice n {contadorForeach+1} = dado {item} da lista");
+// 	contadorForeach++;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 using ExemploFundamentos.Common.Models;
+using System;
 
+int digito;
+int soma = 0;
+int multiplicacao = 1;
+int resultado = 0;
+int numero;
+Console.WriteLine("Coloque o numero");
+numero = Convert.ToInt32(Console.ReadLine());
 
-int[] arrayInteiros = new int[3]; //total de 3 no indice
+//estrutura de repeticao
 
-arrayInteiros[0] = 72; //--indice 1
-arrayInteiros[1] = 64; //--indice 2
-arrayInteiros[2] = 50; //--indice 3
-
-int indiceArray=0;
-Console.WriteLine("Coloque abaixo o tamanho do seu array:");
-indiceArray = Convert.ToInt32(Console.ReadLine());
-
-Array.Resize(ref arrayInteiros, arrayInteiros.Length + indiceArray);
-Array.Resize(ref arrayInteiros, arrayInteiros.Length *2);
-//para printar um array faca um laco de repeticao que vao percorrer pelos indices
-Console.WriteLine("Percorrendo o meu array com o FOR");
-
-for(int contador=0; contador < arrayInteiros.Length; contador++)
+while (numero > 0)
 {
- 	Console.WriteLine($"Posicao numero {contador} = {arrayInteiros[contador]}");
+    digito = numero % 10; //pegando o ultimo digito
+    soma = soma + digito;
+    numero = numero / 10;
+    multiplicacao = multiplicacao * digito;
 }
 
+resultado = multiplicacao - soma;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Console.WriteLine($"valor eh {resultado}");
+*/
